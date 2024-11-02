@@ -20,6 +20,27 @@ public class MyProgram
 		//Проверяем четвертый класс
 		Attributes Player = new Attributes();
 		Player.setAttributes(58, 79, 31);
-		Player.CheckAttributes();		
+		Player.CheckAttributes();	
+
+		//Проверяем пятый класс
+		Item MyItem = new Item();
+		MyItem.CreateItem();
+		
+		//Проверяем шестой класс
+		Quest MyQuest = new Quest(MyItem);
+		MyQuest.CreateQuest();
+		
+		//Проверяем седьмой класс
+		AttackSpell MySpell = new AttackSpell();
+		MySpell.CreateAttackSpell();
+		
+		//Проверяем восьмой класс
+		Inventory MyInvent = new Inventory(30);
+		MyInvent.setItemsCount(4);
+
+		MyInvent.fillInv();
+		MyInvent.showInv();
+
+		MyInvent.CheckInventory();
 	}
 }
