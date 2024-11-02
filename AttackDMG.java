@@ -1,5 +1,6 @@
 //№1 Хранит в себе урон нападающего и защиту обороняющегося
-public class AttackDMG{
+public class AttackDMG
+{
 	private int PlayerDMG;
 	private int EnemyDFN;
 	
