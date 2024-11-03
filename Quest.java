@@ -33,7 +33,7 @@ public class Quest
     //Метод для создания задания
     public void CreateQuest()
 	{
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in, "Cp866");
 		System.out.printf("Введите название задания: ");
 		Title = in.nextLine();
 

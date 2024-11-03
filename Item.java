@@ -37,7 +37,7 @@ public class Item
     //Метод создания предмета
     void CreateItem()
 	{
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in, "Cp866");
 		System.out.printf("Введите название предмета: ");
 		Name = in.nextLine();
 

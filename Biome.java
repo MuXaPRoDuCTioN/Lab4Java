@@ -15,7 +15,7 @@ public class Biome
 	//Метод создания биома
     public void CreateBiome()
 	{
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in, "Cp866");
 		System.out.print("Введите название биома: ");
 		Name = in.nextLine();
 

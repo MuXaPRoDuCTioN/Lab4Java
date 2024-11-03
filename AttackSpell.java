@@ -38,7 +38,7 @@ public class AttackSpell
     //Метод создания атакующего заклинаиния
     public void CreateAttackSpell()
 	{
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in, "Cp866");
 		
 		System.out.printf("Введите название заклинания: ");
 		Name = in.nextLine();
