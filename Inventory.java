@@ -52,13 +52,14 @@ public class Inventory
 
     public void showInv()
     {
+		System.out.printf("В инвентаре следующие предметы(их ID): ");
         for (Integer num : Invent)
 		{
 			if (num == 0)
 				break;
 			System.out.printf("%d ", num);
 		}
-		System.out.println("\n");
+		System.out.printf("\n");
     }
 
     //Метод проверки инвентаря
