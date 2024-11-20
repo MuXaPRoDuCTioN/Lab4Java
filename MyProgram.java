@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 public class MyProgram
 {
 	public static void main (String args[])
 	{
+		Scanner in = new Scanner(System.in, "Cp866");
+		
 		//Проверяем первый класс
 		AttackDMG DMG = new AttackDMG();
 		DMG.setPlayerDMG(5);
@@ -23,8 +27,33 @@ public class MyProgram
 		
 		//Проверяем четвертый класс
 		Attributes Player = new Attributes();
-		Player.setAttributes(58, 79, 31);
-		Player.CheckAttributes();
+		int STR = 1, INT = 1, AGL = 1;
+		char userResponse;
+		
+		do {
+			System.out.printf("Введите значение силы: ");
+			STR = in.nextInt();
+			
+			System.out.printf("Введите значение интеллекта: ");
+			INT = in.nextInt();
+			
+			System.out.printf("Введите значение ловкости: ");
+			AGL = in.nextInt();
+			
+			//Проверка ввода
+			try {
+				Player.setAttributes(STR, INT, AGL);				
+				Player.CheckAttributes();
+			} catch (InvalidAttributesException e) {
+				System.out.println("Неверно введен атрибут: " + e.getMessage());
+			}			
+			
+			System.out.printf("Хотите повторить? (д/н): ");
+            userResponse = in.next().toLowerCase().charAt(0);
+			System.out.printf("\n");
+		} while (userResponse == 'д');
+				
+		System.out.println("Всего корректных вводов: " + Attributes.getTotalInputCounting());
 		System.out.printf("\n");
 
 		//Проверяем пятый класс
