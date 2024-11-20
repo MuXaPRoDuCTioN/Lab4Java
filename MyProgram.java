@@ -12,7 +12,8 @@ public class MyProgram
 		//Проверяем второй класс
 		Defence DFN = new Defence();
 		DFN.setDefence(3, 5, 1, 2, 1);
-		System.out.printf("При показателях брони: %d, %d, %d, %d, %d общий показатель равен %d \n", DFN.getHelmDefence(), DFN.getCuirDefence(), DFN.getGlovDefence(), DFN.getGreaDefence(), DFN.getBootDefence(), DFN.AllDefence());
+		Calculator.processDefence(DFN.getEquipDefence(), DFN);
+		System.out.printf("При показателях брони: %d, %d, %d, %d, %d общий показатель равен %d \n", DFN.getEquipDefence()[0], DFN.getEquipDefence()[1], DFN.getEquipDefence()[2], DFN.getEquipDefence()[3], DFN.getEquipDefence()[4], DFN.getAllDefence());
 		System.out.printf("\n");
 		
 		//Проверяем третий класс

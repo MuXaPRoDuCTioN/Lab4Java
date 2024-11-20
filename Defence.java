@@ -1,59 +1,84 @@
 public class Defence
 {
-	private int HelmetDefence;        //показатель защиты шлема
-    private int CuirassDefence;         //показатель защиты кирассы
-    private int GlovesDefence;         //показатель защиты перчаток
-    private int GreavesDefence;          //показатель защиты поножей
-    private int BootsDefence;           //показатель защиты сапог
+	private int[] EquipDefence;         //Список с показателем защиты каждого предмета
+	private int AllDefence;				//полный показатель защиты
+	private int TopDefence;				//показатель защиты верхней части тела
+	private int BottomDefence;				//показатель защиты нижней части тела
 
 	Defence()  //Конструктор
 	{
-		HelmetDefence = 0;
-        CuirassDefence = 0;
-        GlovesDefence = 0;
-        GreavesDefence = 0;
-        BootsDefence = 0;
+		EquipDefence = new int[5];
 	}
 	
 	//Метод установки значений защиты извне
     public void setDefence(int Helm, int Cuir, int Glov, int Grea, int Boot)
     {
-        HelmetDefence = Helm;
-        CuirassDefence = Cuir;
-        GlovesDefence = Glov;
-        GreavesDefence = Grea;
-        BootsDefence = Boot;
+		EquipDefence[0] = Helm; //0 - Шлем
+        EquipDefence[1] = Cuir; //1 - Кирасса
+        EquipDefence[2] = Glov; //2 - Перчатки
+        EquipDefence[3] = Grea; //3 - Поножи
+        EquipDefence[4] = Boot; //4 - Ботинки
     }
 	
 	//Методы получения значений урона и защиты извне
-    public int getHelmDefence() 
-    {
-        return HelmetDefence;
-    }
-
-    public int getCuirDefence() 
-    {
-        return CuirassDefence;
-    }
-
-    public int getGlovDefence() 
-    {
-        return GlovesDefence;
-    }
-
-    public int getGreaDefence() 
-    {
-        return GreavesDefence;
-    }
-
-    public int getBootDefence() 
-    {
-        return BootsDefence;
-    }
-
-    //Метод расчета полной брони
-    public int AllDefence()
+    public int[] getEquipDefence()
 	{
-		return HelmetDefence + CuirassDefence + GlovesDefence + GreavesDefence + BootsDefence;
+		return EquipDefence;
+	}
+	
+	public int getAllDefence() 
+    {
+        return AllDefence;
+    }
+	
+	public int getTopDefence() 
+    {
+        return TopDefence;
+    }
+	
+	public int getBottomDefence() 
+    {
+        return BottomDefence;
+    }
+	
+	//Методы установки значений (сеттеры)
+	public void setAllDefence(int AllDefence) 
+    {
+        this.AllDefence = AllDefence;
+    }
+	
+	public void setTopDefence(int TopDefence) 
+    {
+        this.TopDefence = TopDefence;
+    }
+	
+	public void setBottomDefence(int BottomDefence) 
+    {
+        this.BottomDefence = BottomDefence;
+    }
+}
+
+//Вспомогательный класс
+class Calculator 
+{
+	public static void processDefence(int[] EquipDefence, Defence Equip)
+	{
+		int AllDefence = 0;
+		int TopDefence = 0;
+		int BottomDefence = 0;
+		
+		for (int i = 0; i < 5; i++)
+		{
+			AllDefence += EquipDefence[i];
+			
+			if (i < 3)
+				TopDefence += EquipDefence[i];
+			else
+				BottomDefence += EquipDefence[i];
+		}
+		
+		Equip.setAllDefence(AllDefence);
+		Equip.setTopDefence(TopDefence);
+		Equip.setBottomDefence(BottomDefence);
 	}
 }
