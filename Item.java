@@ -1,17 +1,26 @@
 import java.util.Scanner;
 
-public class Item
+//Абстрактный класс
+public abstract class Item
 {
-	private String Name;        // название предмета
-	private String ItemType;   // тип предмета (оружие, броня, зелье и т.д.)
-	private int Value;            // стоимость предмета
-	private int Weight;           // вес предмета
+	protected String Name;        // название предмета
+	protected String ItemType;   // тип предмета (оружие, броня, зелье и т.д.)
+	protected int Value;            // стоимость предмета
+	protected int Weight;           // вес предмета
 	
-	Item()
+	public Item()
     {
         Value = 0;
         Weight = 0;
     }
+	
+	public Item(String Name, String ItemType, int Value, int Weight)
+	{
+		this.Name = Name;
+		this.ItemType = ItemType;
+		this.Value = Value;
+		this.Weight = Weight;
+	}
 	
 	//Методы для получения значений предмета
     public String getName()  
@@ -35,7 +44,7 @@ public class Item
     }
 
     //Метод создания предмета
-    void CreateItem()
+    public void CreateItem()
 	{
 		Scanner in = new Scanner(System.in, "Cp866");
 		System.out.printf("Введите название предмета: ");
@@ -51,4 +60,13 @@ public class Item
 
 		System.out.printf("Вы успешно создали предмет!\n");
 	}
+	
+	//Абстрактный метод
+	public abstract void CompareItem();
+}
+
+//Интерфейс для просмотра предмета
+interface CheckingItem
+{
+	void CheckItem();
 }

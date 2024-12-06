@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MyProgram
 {
-	public static void main (String args[])
+	public static void main (String args[]) throws CloneNotSupportedException
 	{
 		Scanner in = new Scanner(System.in, "Cp866");
 		
@@ -57,8 +57,10 @@ public class MyProgram
 		System.out.printf("\n");
 
 		//Проверяем пятый класс
-		Item MyItem = new Item();
+		Usable MyItem = new Usable();
 		MyItem.CreateItem();
+		Usable clonedMyItem = (Usable) MyItem.clone();
+		clonedMyItem.CheckItem();
 		System.out.printf("\n");
 		
 		//Проверяем шестой класс
