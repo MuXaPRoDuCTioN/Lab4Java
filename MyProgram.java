@@ -111,7 +111,7 @@ public class MyProgram
         }
     }
 	
-	// Метод поиска транспортных средств дороже указанной цены
+	// Метод поиска предметов дороже указанной цены
     private static List<Item> findItemsAbovePrice(List<Item> items, int Value) {
         List<Item> result = new ArrayList<>();
         for (Item item : items) {
