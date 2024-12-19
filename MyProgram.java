@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 public class MyProgram
 {
@@ -82,5 +83,42 @@ public class MyProgram
 
 		MyInvent.CheckInventory();
 		System.out.printf("\n");
+		
+		List<Item> Invent = new ArrayList<>();
+		
+		Invent.add(MyItem);
+		Invent.add(clonedMyItem);
+		
+		// Вывод исходного списка
+        System.out.println("Исходный список предметов:");
+        printItems(Invent);
+		
+		// Сортировка по цене
+        Collections.sort(Invent);
+        System.out.println("\nСписок после сортировки по цене:");
+        printItems(Invent);
+		
+		// Найдем предметы дороже 50
+        List<Item> expensiveItems = findItemsAbovePrice(Invent, 50);
+        System.out.println("\nПредметы дороже 50 монет:");
+        printItems(expensiveItems);
 	}
+	
+	// Метод для вывода списка транспортных средств
+    private static void printItems(List<Item> Invent) {
+        for (Item item : Invent) {
+            System.out.println(item);
+        }
+    }
+	
+	// Метод поиска транспортных средств дороже указанной цены
+    private static List<Item> findItemsAbovePrice(List<Item> items, int Value) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getValue() > Value) {
+                result.add(item);
+            }
+        }
+        return result;
+    }
 }

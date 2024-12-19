@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 //Абстрактный класс
-public abstract class Item
+public abstract class Item implements Comparable<Item>
 {
 	protected String Name;        // название предмета
 	protected String ItemType;   // тип предмета (оружие, броня, зелье и т.д.)
